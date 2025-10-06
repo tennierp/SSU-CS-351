@@ -1,7 +1,6 @@
 
 #include <cstdlib>
 #include <iostream>
-#include <list>
 #include <numeric>
 #include <vector>
 
