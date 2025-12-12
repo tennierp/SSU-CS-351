@@ -104,7 +104,7 @@ int main(int argc, char* argv[]) {
                 }
 
                 double sum = 0.0;
-                for (size_t i = begin, i < end; ++i) {
+                for (size_t i = begin; i < end; ++i) {
                     sum += data[i];
                 }
 
