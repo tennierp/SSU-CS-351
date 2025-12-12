@@ -136,7 +136,7 @@ int main(int argc, char* argv[]) {
     //      closing brace :-)   
     //
     for (size_t id = 0; id < threads.size(); ++id) {
-        threads[id] = std::jthread{ []() {
+        threads[id] = std::jthread{ [id, chunkSize, partitions, &insidePoints, &barrier]() {
 
             // C++ 11's random number generation system.  These functions
             //   will generate uniformly distributed unsigned integers in
@@ -167,7 +167,13 @@ int main(int argc, char* argv[]) {
     //   having the main thread wait on a thread to keep it from exiting
     //
     // (Look in threaded.cpp for hints)
+    threads.back().join();
 
+    size_t volumePoints = 0;
+    for (size_t i = 0; i < insidePoints.size(); ++i) {
+		volumePoints += insidePoints[i];
+	} 
+	
     std::cout << static_cast<double>(volumePoints) / numSamples << "\n";
 }
 
