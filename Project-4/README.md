@@ -17,4 +17,4 @@ Converted a CPU-based Julia set generator to CUDA. Each thread computes one pixe
 
 ### Generated Mandelbrot Set
 
-![Mandelbrot Set](julia.ppm)
+![Mandelbrot Set](julia.png)
