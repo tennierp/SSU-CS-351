@@ -155,8 +155,13 @@ int main(int argc, char* argv[]) {
             
                 // Generate points inside the volume cube.  First, create uniformly
                 //   distributed points in the range [0.0, 1.0] for each dimension.
-                vec3 p(rand(), rand(), rand());
+            size_t count = 0;
+			for (size_t i = 0; i < chunkSize; ++i) {
+				vec3 p(rand(), rand(), rand());
+				count += sdf(p);
+			}
 
+			insidePoints[id] = count;
 
             barrier.arrive_and_wait();
         }};
