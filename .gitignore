@@ -2,6 +2,7 @@
 *.d
 *.bin
 *.idea
+*.DS_Store
 
 # Compiled Object files
 *.slo
